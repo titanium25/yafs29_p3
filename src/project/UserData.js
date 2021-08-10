@@ -14,6 +14,7 @@ function UserData(props) {
             <Row>
                 <Col>
                     <User user={props.user}
+                          key={props.user.id}
                           userTasks={props.userTasks}
                           bgcolor={showPosts || showTasks ? 'warning' : 'light'}
                           setShowPosts={setShowPosts}
@@ -24,6 +25,7 @@ function UserData(props) {
                 </Col>
                 <Col>
                     {showPosts && <Post posts={props.userPosts}
+                                        key={props.user.id}
                                         userId={props.user.id}
                                         setShowPosts={setShowPosts}
                                         callbackNewPost={newPost => props.callbackNewPost(newPost)}
@@ -32,6 +34,7 @@ function UserData(props) {
                 </Col>
                 <Col>
                     {showTasks && <Tasks tasks={props.userTasks}
+                                         key={props.user.id}
                                          userId={props.user.id}
                                          setShowTasks={setShowTasks}
                                          callbackUpdateTask={task => props.callbackUpdateTask(task)}
